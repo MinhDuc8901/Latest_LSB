@@ -112,13 +112,13 @@ key_encoded = ""
 
 while True:
     # m = input("To encode press '1', to decode press '2', press any other button to close: ")
-    m = input("Nhấn 1 để dấu tin trong ảnh, nhấn 2 để tách thông điệp ra khỏi ảnh, nhấn nút bất kỳ để đóng chương trình:")
+    m = input("Nhấn 1 để giấu tin trong ảnh, nhấn 2 để tách thông điệp ra khỏi ảnh, nhấn nút bất kỳ để đóng chương trình:")
     if m == "1":
         os.chdir("Original_image/")
         original_image_file = input("Nhập tên file : ")
         lsb_img = Image.open(original_image_file)
         print("Miêu tả : ",lsb_img,"\nMode : ", lsb_img.mode)
-        secret_msg = input("Nhập thông điệp muốn dấu: ")
+        secret_msg = input("Nhập thông điệp muốn giấu: ")
         print("Độ dài thông điệp: ",len(secret_msg))
         os.chdir("..")
         os.chdir("Encoded_image/")
@@ -126,7 +126,7 @@ while True:
         lsb_img_encoded = LSB().encode_image(lsb_img, code_text)
         lsb_encoded_image_file = "lsb_" + original_image_file
         lsb_img_encoded.save(lsb_encoded_image_file)
-        print("Ảnh dấu tin đã được lưu!")
+        print("Ảnh giấu tin đã được lưu!")
         os.chdir("..")
 
     elif m == "2":
